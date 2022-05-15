@@ -9,11 +9,11 @@ jar包：
 # 使用
 ### mapreduce
 执行命令：
-hadoop jar map-reduce-code-1.0-SNAPSHOT-jar.jar com.mr.MrMain  $输入文件路径 $输出目录
+hadoop jar map-reduce-code-1.0-SNAPSHOT-jar.jar com.mr.MrMain  $输入文件路径 $输出目录  
 例如hadoop jar map-reduce-code-1.0-SNAPSHOT.jar com.mr.MrMain /junyuan/HTTP_20130313143750.dat /junyuan/output
 ### hbase
 执行命令：
-java -jar hbase-code-1.0-SNAPSHOT.jar com.hbase.code.HbaseMain $命令参数
+java -jar hbase-code-1.0-SNAPSHOT.jar com.hbase.code.HbaseMain $命令参数  
 例如java -jar hbase-code-1.0-SNAPSHOT-jar-with-dependencies.jar com.hbase.code.HbaseMain scan
 
 命令参数有如下：
