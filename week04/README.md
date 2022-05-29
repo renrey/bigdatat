@@ -52,9 +52,13 @@ where sex='M'group by t_rating.MovieID,t.moviename  having total>=50 order by av
  limit 10;
 
  ### 第3题
- select t_movie.moviename,movie.movieid,ar.avgrate,rate from 
-(select tr.movieid,tr.rate from 
-(select r.userid,count(1) total from t_rating r left join t_user u on r.userid = u.userid where u.sex='F' group by r.userid order by total desc limit 1)
-uid left join t_rating tr on uid.userid = tr.userid order by tr.rate desc limit 10) movie left join (
-select avg(rate) avgrate,tr2.movieid from t_rating tr2  group by tr2.movieid) ar on movie.movieid=ar.movieid
-left join t_movie on movie.movieid=t_movie.movieid;
+select md.moviename,avg(r.rate) avgrate from 
+        (select tr.movieid,tr.rate from 
+            (select r.userid,count(1) total from t_rating r left join t_user u on r.userid = u.userid where u.sex='F' 
+            group by r.userid order by total desc limit 1) uid 
+        left join t_rating tr on uid.userid = tr.userid order by tr.rate desc,tr.movieid limit 10) movie 
+join t_rating r
+on movie.movieid =r.movieid
+join t_movie md
+on movie.movieid = md.movieid
+group by md.moviename;
