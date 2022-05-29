@@ -46,9 +46,11 @@ CREATE EXTERNAL TABLE t_rating (
 
 
 导入数据文件到数据表的目录中：
+```sql
 LOAD DATA LOCAL INPATH '/data/hive/users.dat' OVERWRITE INTO TABLE t_user;
 LOAD DATA LOCAL INPATH '/data/hive/movies.dat' OVERWRITE INTO TABLE t_movie;
 LOAD DATA LOCAL INPATH '/data/hive/ratings.dat' OVERWRITE INTO TABLE t_rating;
+```
 
 ## 查询
 ### 第1题
