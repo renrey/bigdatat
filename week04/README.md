@@ -74,5 +74,5 @@ where sex='M'group by t_rating.MovieID,t.moviename  having total>=50 order by av
 (select r.userid,count(1) total from t_rating r left join t_user u on r.userid = u.userid where u.sex='F' group by r.userid order by total desc limit 1)
 uid left join t_rating tr on uid.userid = tr.userid order by tr.rate desc limit 10) movie left join (
 select avg(rate) avgrate,tr2.movieid from t_rating tr2  group by tr2.movieid) ar on movie.movieid=ar.movieid
-```
 left join t_movie on movie.movieid=t_movie.movieid;
+```
